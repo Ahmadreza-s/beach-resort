@@ -20,9 +20,6 @@ const fetchRoomsSuccess = (rooms, featuredRooms) => ({
 export const fetchRooms = () => dispatch => {
     dispatch(fetchRoomsStart());
     //fetch data from server
-    dispatch(fetchRoomsSuccess({
-        rooms        : formatData(data),
-        featuredRooms: formatData(data).filter(room => room.feature)
-    }));
+    dispatch(fetchRoomsSuccess(formatData(data), formatData(data).filter(room => room.featured)));
     //fetchroomsfailure
 };

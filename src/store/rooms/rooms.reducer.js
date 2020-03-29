@@ -22,9 +22,9 @@ export const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_ROOMS_SUCCESS:
             return {
                 ...state,
-                rooms        : action.rooms,
-                sortedRooms  : action.rooms,
-                featuredRooms: action.featured,
+                rooms        : state.rooms.concat(action.rooms),
+                sortedRooms  : state.sortedRooms.concat(action.rooms),
+                featuredRooms: state.featuredRooms.concat(action.featuredRooms),
                 loading      : false
             };
         case actionTypes.FETCH_ROOMS_FAILURE:
