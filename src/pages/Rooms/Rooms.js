@@ -7,7 +7,7 @@ import defaultBg from '../../assets/images/room-4.jpeg';
 
 const Rooms = () => {
     return (
-        <Hero>
+        <Hero image={defaultBg}>
             <Banner title='Our rooms'>
                 <Link to='/' className='btn-primary'>
                     return home
