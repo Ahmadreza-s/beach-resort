@@ -1,24 +1,17 @@
 import React from 'react';
 import {Link, Redirect, useParams} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import Hero from '../../../components/Hero/Hero';
 import Banner from '../../../components/Banner/Banner';
 import defaultBcg from '../../../assets/images/room-1.jpeg';
 import './SingleRoom.css';
-import {fetchRooms} from '../../../store/rooms/rooms.actions';
 import Loading from '../../../components/Loading/Loading';
 
 const SingleRoom = () => {
-    const dispatch = useDispatch();
     const {slug} = useParams();
     const rooms = useSelector(state => state.rooms.rooms);
     const loading = useSelector(state => state.rooms.loading);
     const error = useSelector(state => state.rooms.error);
-    const initRooms = React.useCallback(() => dispatch(fetchRooms()), [dispatch]);
-    React.useEffect(() => {
-        if (!rooms.length)
-            initRooms();
-    }, [rooms, initRooms]);
 
 
     let room = rooms.find(c => c.slug === slug);

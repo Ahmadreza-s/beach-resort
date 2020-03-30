@@ -1,18 +1,11 @@
 import React from 'react';
 import './FeaturedRooms.css';
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchRooms} from '../../store/rooms/rooms.actions';
+import {useSelector} from 'react-redux';
 import Loading from '../Loading/Loading';
 import Room from '../Room/Room';
 import Title from '../Title/Title';
 
 const FeaturedRooms = () => {
-    const dispatch = useDispatch();
-
-    const initRooms = React.useCallback(() => dispatch(fetchRooms()), [dispatch]);
-    React.useEffect(() => {
-        initRooms();
-    }, [initRooms]);
 
     const loading = useSelector(state => state.rooms.loading);
     const error = useSelector(state => state.rooms.error);

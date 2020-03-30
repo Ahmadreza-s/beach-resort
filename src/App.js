@@ -5,10 +5,18 @@ import SingleRoom from './pages/Rooms/SingleRoom/SingleRoom';
 import Rooms from './pages/Rooms/Rooms';
 import Error from './pages/Error/Error';
 
-import {Switch, Link, Redirect, Route} from 'react-router-dom';
+import {Switch, Redirect, Route} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import {useDispatch} from 'react-redux';
+import {fetchRooms} from './store/rooms/rooms.actions';
 
 function App() {
+    const dispatch = useDispatch();
+    const initRooms = React.useCallback(() => dispatch(fetchRooms()), [dispatch]);
+    React.useEffect(() => {
+        initRooms();
+    }, [initRooms]);
+
     return (
         <>
             <Navbar/>
