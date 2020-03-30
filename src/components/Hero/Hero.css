@@ -1,15 +1,15 @@
 /* Hero */
-.defaultHero,
-.roomsHero {
-    min-height: calc(100vh - 66px);
-    background: url("../../assets/images/defaultBcg.jpeg") center/cover no-repeat;
+.hero{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.defaultHero{
+    min-height: calc(100vh - 66px);
+    background: url("../../assets/images/defaultBcg.jpeg") center/cover no-repeat;
+}
 
 .roomsHero {
-    background-image: url("../../assets/images/room-2.jpeg");
     min-height: 60vh;
 }
 
