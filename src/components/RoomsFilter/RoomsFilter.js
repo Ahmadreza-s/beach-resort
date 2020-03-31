@@ -8,7 +8,6 @@ const RoomsFilter = ({optionsValue, onFilterChange}) => {
     const types = ['all', ...new Set(rooms.map(room => room.type))];
     const people = ['all', ...new Set(rooms.map(room => room.capacity))];
 
-    console.log(optionsValue);
     const handleChange = e =>
         onFilterChange({
             ...optionsValue,
