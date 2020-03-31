@@ -1,5 +1,5 @@
 import * as actionTypes from './rooms.types';
-import data from '../../data';
+import client from '../../contentful/contentful';
 
 const formatData = items =>
     items.map(item => ({
@@ -16,9 +16,15 @@ const fetchRoomsSuccess = rooms => ({
     rooms
 });
 
-export const fetchRooms = () => dispatch => {
+export const fetchRooms = () => async dispatch => {
     dispatch(fetchRoomsStart());
-    //fetch data from server
-    dispatch(fetchRoomsSuccess(formatData(data)));
-    //fetchroomsfailure
+    try {
+        const data = await client.getEntries({
+            content_type: 'beachResortRooms',
+            order       : 'sys.createdAt'
+        });
+        dispatch(fetchRoomsSuccess(formatData(data.items)));
+    } catch (e) {
+        dispatch(fetchRoomsFailure(e.message));
+    }
 };
