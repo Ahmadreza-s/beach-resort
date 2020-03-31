@@ -65,7 +65,7 @@ const RoomsContainer = () => {
 
         setRooms(tempRooms);
         setFilteringOptions(options);
-    });
+    }, [globalRooms]);
 
     return (
         <>
