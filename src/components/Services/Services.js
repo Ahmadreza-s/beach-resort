@@ -1,10 +1,10 @@
 import React from 'react';
 import './Services.css';
 import Title from '../Title/Title';
-import {FaCocktail, FaHiking, FaShuttleVan, FaBeer} from 'react-icons/fa';
+import {FaBeer, FaCocktail, FaHiking, FaShuttleVan} from 'react-icons/fa';
 
 const Services = () => {
-    const [services, setServices] = React.useState([
+    const services = [
         {
             icon : <FaCocktail/>,
             title: 'Free Cocktails',
@@ -25,7 +25,7 @@ const Services = () => {
             title: 'Strongest Beer',
             info : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, exercitationem!'
         }
-    ]);
+    ];
     return (
         <section className='services'>
             <Title>Services</Title>
