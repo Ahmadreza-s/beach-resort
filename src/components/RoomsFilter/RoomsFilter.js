@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 const RoomsFilter = ({optionsValue, onFilterChange}) => {
     const rooms = useSelector(state => state.rooms.rooms);
     const types = ['all', ...new Set(rooms.map(room => room.type))];
-    const people = ['all', ...new Set(rooms.map(room => room.capacity))];
+    const people = ['all', ...new Set(rooms.map(room => room.capacity).sort((a, b) => a - b))];
 
     const handleChange = e =>
         onFilterChange({
