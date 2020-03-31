@@ -9,7 +9,7 @@ const Room = ({room}) => {
             <div className='img-container'>
                 <img src={room.images[0] || defaultImg} alt='single room'/>
                 <div className='price-top'>
-                    <h6>{room.price}</h6>
+                    <h6>${room.price}</h6>
                     <p>per night</p>
                 </div>
                 <Link to={`/rooms/${room.slug}`} className='btn-primary room-link'>
